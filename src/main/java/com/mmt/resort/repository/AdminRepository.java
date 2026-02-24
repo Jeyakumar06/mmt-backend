@@ -1,5 +1,4 @@
 package com.mmt.resort.repository;
-
 import com.mmt.resort.model.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 
