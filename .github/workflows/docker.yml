@@ -24,3 +24,14 @@ jobs:
 
       - name: Push Docker Image
         run: docker push jeyakumar56/mmt-backend:latest
+
+      - name: Deploy Backend to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /opt/mmt-app
+            docker compose pull backend
+            docker compose up -d --force-recreate backend
