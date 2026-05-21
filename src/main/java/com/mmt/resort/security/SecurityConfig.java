@@ -27,7 +27,8 @@ public class SecurityConfig {
             )
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers(
-                            "/api/admin/login"
+                            "/api/admin/login","/admin/login"
+
                     ).permitAll()
                     .requestMatchers("/uploads/**").permitAll()
                     .requestMatchers("/api/villas/**").permitAll()
